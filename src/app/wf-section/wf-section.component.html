@@ -1,0 +1,21 @@
+<p>{{displayString}}</p>
+<p style="color:red;">Section Component: template text should be red</p>
+
+<div *ngIf="defaultSection">
+  <ng-container *ngFor="let componentData of webFormSectionData.components;let i = index;">
+    <ng-container [ngSwitch]="componentData.type">
+      <ng-container *ngSwitchCase="1">
+        <!--label-->
+        <app-wf-label [webFormSectionData]='webFormSectionData' [componentData]='componentData'></app-wf-label>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <!--link-->
+        <app-wf-link [webFormSectionData]='webFormSectionData' [componentData]='componentData'></app-wf-link>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+
+<div *ngIf="!defaultSection">
+  <ngx-dynamic-hooks [content]="webFormSectionData.layout" [context]="contextObj"></ngx-dynamic-hooks>
+</div>

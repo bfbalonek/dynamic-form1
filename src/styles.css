@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+.cl-padding-10{
+    padding:10px 10px 10px 10px;
+}
+
+.cl-red {
+  color: red;
+}
+
+.cl-center-text{
+    text-align:center;
+}
