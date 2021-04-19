@@ -16,11 +16,13 @@ export class WfSectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let wfsd = this.webFormSectionData;
+
     if (this.defaultSection) {
       this.displayString = "DEFAULT section works!";
     } else {
       this.displayString = "CUSTOM section works!";
-      this.contextObj = { webFormSectionData: this.webFormSectionData };
+      this.contextObj = { webFormSectionData: this.webFormSectionData, isComponentValidHandler: this.isComponentValidHandler };
 
       //we need to parse the layout string and convert any placeholder components into actual components
       for (var i = 0; i < this.webFormSectionData.components.length; i++) {
@@ -33,6 +35,9 @@ export class WfSectionComponent implements OnInit {
           case 2: //link
             componentString = '<app-wf-link [webFormSectionData]="context.webFormSectionData" [componentData]="context.webFormSectionData.components[' + i + ']"></app-wf-link>';
             break;
+          case 3: //numeric
+            componentString = '<app-wf-numeric-textbox [webFormSectionData]="context.webFormSectionData" [componentData]="context.webFormSectionData.components[' + i + ']" (isComponentValid)="context.isComponentValidHandler($event)"></app-wf-numeric-textbox>';
+            break;
           default:
             componentString = '{{component' + i + '}}';
             break;
@@ -42,5 +47,9 @@ export class WfSectionComponent implements OnInit {
       }
     }
   }
+
+  public isComponentValidHandler(value: boolean) {
+    console.log("value of component is even: " + value);
+  };
 
 }

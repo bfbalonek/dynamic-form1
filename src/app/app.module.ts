@@ -8,6 +8,8 @@ import { WfLabelComponent } from './wf-label/wf-label.component';
 import { WfBodyComponent } from './wf-body/wf-body.component';
 import { DynamicHooksModule, HookParserEntry } from 'ngx-dynamic-hooks';
 import { WfLinkComponent } from './wf-link/wf-link.component';
+import { WfNumericTextboxComponent } from './wf-numeric-textbox/wf-numeric-textbox.component';
+import { FormsModule } from '@angular/forms';
 
 // This automatically creates SelectorHookParsers for each listed component:
 const componentParsers: Array<HookParserEntry> = [
@@ -15,6 +17,7 @@ const componentParsers: Array<HookParserEntry> = [
   { component: WfSectionComponent },
   { component: WfLabelComponent },
   { component: WfLinkComponent },
+  { component: WfNumericTextboxComponent },
   // ...
 ];
 
@@ -24,7 +27,8 @@ const componentParsers: Array<HookParserEntry> = [
     WfSectionComponent,
     WfLabelComponent,
     WfBodyComponent,
-    WfLinkComponent
+    WfLinkComponent,
+    WfNumericTextboxComponent
   ],
   imports: [
     // forRoot() is used to register global parsers and options
@@ -32,7 +36,8 @@ const componentParsers: Array<HookParserEntry> = [
       globalParsers: componentParsers
     }),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

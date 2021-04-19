@@ -12,6 +12,10 @@
         <!--link-->
         <app-wf-link [webFormSectionData]='webFormSectionData' [componentData]='componentData'></app-wf-link>
       </ng-container>
+      <ng-container *ngSwitchCase="3">
+        <!--numeric-->
+        <app-wf-numeric-textbox [webFormSectionData]='webFormSectionData' [componentData]='componentData' (isComponentValid)="isComponentValidHandler($event)"></app-wf-numeric-textbox>
+      </ng-container>
     </ng-container>
   </ng-container>
 </div>
