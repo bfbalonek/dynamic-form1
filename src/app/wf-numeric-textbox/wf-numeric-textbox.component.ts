@@ -17,12 +17,13 @@ export class WfNumericTextboxComponent implements OnInit {
   }
 
   ngModelChanged(event) {
-    if (this.componentData.value % 2 == 0) {
-      this.isComponentValid.emit(true);
-    }
-    else {
-      this.isComponentValid.emit(false);
-    }
+    this.isComponentValid.emit(this.componentData.value);
+    //if (this.componentData.value % 2 == 0) {
+    //  this.isComponentValid.emit(true);
+    //}
+    //else {
+    //  this.isComponentValid.emit(false);
+    //}
   };
 
 }

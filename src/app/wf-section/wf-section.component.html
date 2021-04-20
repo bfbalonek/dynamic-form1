@@ -1,7 +1,8 @@
 <p>{{displayString}}</p>
 <p style="color:red;">Section Component: template text should be red</p>
-
+<br/>
 <div *ngIf="defaultSection">
+  <p>value of numeric component is: {{numericComponentValue}}</p>
   <ng-container *ngFor="let componentData of webFormSectionData.components;let i = index;">
     <ng-container [ngSwitch]="componentData.type">
       <ng-container *ngSwitchCase="1">
@@ -21,5 +22,6 @@
 </div>
 
 <div *ngIf="!defaultSection">
+  <p>value of numeric component is: {{numericComponentValue}}</p>
   <ngx-dynamic-hooks [content]="webFormSectionData.layout" [context]="contextObj"></ngx-dynamic-hooks>
 </div>

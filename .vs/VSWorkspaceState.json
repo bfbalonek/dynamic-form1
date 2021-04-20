@@ -4,8 +4,10 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\wf-label",
+    "\\src\\app\\wf-link",
+    "\\src\\app\\wf-numeric-textbox",
     "\\src\\app\\wf-section"
   ],
-  "SelectedNode": "\\src\\app\\app.component.ts",
+  "SelectedNode": "\\src\\app\\wf-numeric-textbox\\wf-numeric-textbox.component.ts",
   "PreviewInSolutionExplorer": false
 }

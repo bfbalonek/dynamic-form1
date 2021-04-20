@@ -11,7 +11,9 @@ export class WfSectionComponent implements OnInit {
   @Input() defaultSection: any = true;
 
   displayString: string = "";
-  contextObj = {};
+  contextObj:any = {};
+
+  numericComponentValue: number = 0;
 
   constructor() { }
 
@@ -22,7 +24,8 @@ export class WfSectionComponent implements OnInit {
       this.displayString = "DEFAULT section works!";
     } else {
       this.displayString = "CUSTOM section works!";
-      this.contextObj = { webFormSectionData: this.webFormSectionData, isComponentValidHandler: this.isComponentValidHandler };
+      //this.contextObj = { webFormSectionData: this.webFormSectionData, isComponentValidHandler: this.isComponentValidHandler };//A function directly assigned to the context object will have this pointing to the context object itself when called
+      this.contextObj = { webFormSectionData: this.webFormSectionData, isComponentValidHandler: this.isComponentValidHandler.bind(this) };
 
       //we need to parse the layout string and convert any placeholder components into actual components
       for (var i = 0; i < this.webFormSectionData.components.length; i++) {
@@ -48,8 +51,8 @@ export class WfSectionComponent implements OnInit {
     }
   }
 
-  public isComponentValidHandler(value: boolean) {
-    console.log("value of component is even: " + value);
+  isComponentValidHandler(value: number) {
+    this.numericComponentValue = value;
   };
 
 }
