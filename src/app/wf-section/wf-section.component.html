@@ -1,8 +1,8 @@
 <p>{{displayString}}</p>
 <p style="color:red;">Section Component: template text should be red</p>
 <p>last component to change value has a new value of: {{latestComponentValue}}</p>
-<br/>
-<br/>
+<br />
+<br />
 <div *ngIf="defaultSection">
   <ng-container *ngFor="let componentData of webFormSectionData.components;let i = index;">
     <ng-container [ngSwitch]="componentData.type">
@@ -22,6 +22,10 @@
         <!--datepicker-->
         <app-wf-datepicker [webFormSectionData]='webFormSectionData' [componentData]='componentData' (isComponentValid)="isComponentValidHandler($event)"></app-wf-datepicker>
       </ng-container>
+      <ng-container *ngSwitchCase="5">
+        <!--grid-->
+        <app-wf-grid [webFormSectionData]='webFormSectionData' [componentData]='componentData' (isComponentValid)="isComponentValidHandler($event)"></app-wf-grid>
+      </ng-container>
     </ng-container>
   </ng-container>
 </div>
@@ -29,3 +33,10 @@
 <div *ngIf="!defaultSection">
   <ngx-dynamic-hooks [content]="webFormSectionData.layout" [context]="contextObj"></ngx-dynamic-hooks>
 </div>
+
+
+
+
+
+
+

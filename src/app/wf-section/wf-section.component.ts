@@ -45,6 +45,9 @@ export class WfSectionComponent implements OnInit {
           case 4: //datepicker
             componentString = '<app-wf-datepicker [webFormSectionData]="context.webFormSectionData" [componentData]="context.webFormSectionData.components[' + i + ']" (isComponentValid)="context.isComponentValidHandler($event)"></app-wf-datepicker>';
             break;
+          case 5: //grid
+            componentString = '<app-wf-grid [webFormSectionData]="context.webFormSectionData" [componentData]="context.webFormSectionData.components[' + i + ']" (isComponentValid)="context.isComponentValidHandler($event)"></app-wf-grid>';
+            break;
           default:
             componentString = '{{component' + i + '}}';
             break;

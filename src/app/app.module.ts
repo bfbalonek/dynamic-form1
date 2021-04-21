@@ -16,6 +16,8 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { IntlModule } from '@progress/kendo-angular-intl';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WfDatepickerComponent } from './wf-datepicker/wf-datepicker.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { WfGridComponent } from './wf-grid/wf-grid.component';
 
 // This automatically creates SelectorHookParsers for each listed component:
 const componentParsers: Array<HookParserEntry> = [
@@ -25,6 +27,7 @@ const componentParsers: Array<HookParserEntry> = [
   { component: WfLinkComponent },
   { component: WfNumericTextboxComponent },
   { component: WfDatepickerComponent },
+  { component: WfGridComponent },
   // ...
 ];
 
@@ -36,7 +39,8 @@ const componentParsers: Array<HookParserEntry> = [
     WfBodyComponent,
     WfLinkComponent,
     WfNumericTextboxComponent,
-    WfDatepickerComponent
+    WfDatepickerComponent,
+    WfGridComponent
   ],
   imports: [
     // forRoot() is used to register global parsers and options
@@ -50,7 +54,8 @@ const componentParsers: Array<HookParserEntry> = [
     LabelModule,
     InputsModule,
     IntlModule,
-    DateInputsModule
+    DateInputsModule,
+    GridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
