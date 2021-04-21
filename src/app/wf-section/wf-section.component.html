@@ -1,6 +1,6 @@
 <p>{{displayString}}</p>
 <p style="color:red;">Section Component: template text should be red</p>
-<p>value of numeric component is: {{numericComponentValue}}</p>
+<p>last component to change value has a new value of: {{latestComponentValue}}</p>
 <br/>
 <br/>
 <div *ngIf="defaultSection">
@@ -17,6 +17,10 @@
       <ng-container *ngSwitchCase="3">
         <!--numeric-->
         <app-wf-numeric-textbox [webFormSectionData]='webFormSectionData' [componentData]='componentData' (isComponentValid)="isComponentValidHandler($event)"></app-wf-numeric-textbox>
+      </ng-container>
+      <ng-container *ngSwitchCase="4">
+        <!--datepicker-->
+        <app-wf-datepicker [webFormSectionData]='webFormSectionData' [componentData]='componentData' (isComponentValid)="isComponentValidHandler($event)"></app-wf-datepicker>
       </ng-container>
     </ng-container>
   </ng-container>

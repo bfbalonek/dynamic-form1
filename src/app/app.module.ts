@@ -10,6 +10,12 @@ import { DynamicHooksModule, HookParserEntry } from 'ngx-dynamic-hooks';
 import { WfLinkComponent } from './wf-link/wf-link.component';
 import { WfNumericTextboxComponent } from './wf-numeric-textbox/wf-numeric-textbox.component';
 import { FormsModule } from '@angular/forms';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { IntlModule } from '@progress/kendo-angular-intl';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WfDatepickerComponent } from './wf-datepicker/wf-datepicker.component';
 
 // This automatically creates SelectorHookParsers for each listed component:
 const componentParsers: Array<HookParserEntry> = [
@@ -18,6 +24,7 @@ const componentParsers: Array<HookParserEntry> = [
   { component: WfLabelComponent },
   { component: WfLinkComponent },
   { component: WfNumericTextboxComponent },
+  { component: WfDatepickerComponent },
   // ...
 ];
 
@@ -28,7 +35,8 @@ const componentParsers: Array<HookParserEntry> = [
     WfLabelComponent,
     WfBodyComponent,
     WfLinkComponent,
-    WfNumericTextboxComponent
+    WfNumericTextboxComponent,
+    WfDatepickerComponent
   ],
   imports: [
     // forRoot() is used to register global parsers and options
@@ -36,8 +44,13 @@ const componentParsers: Array<HookParserEntry> = [
       globalParsers: componentParsers
     }),
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    LabelModule,
+    InputsModule,
+    IntlModule,
+    DateInputsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

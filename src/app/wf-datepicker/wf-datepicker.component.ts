@@ -2,11 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { WfValueChange } from '../models/wf-value-change';
 
 @Component({
-  selector: 'app-wf-numeric-textbox',
-  templateUrl: './wf-numeric-textbox.component.html',
-  styleUrls: ['./wf-numeric-textbox.component.scss']
+  selector: 'app-wf-datepicker',
+  templateUrl: './wf-datepicker.component.html',
+  styleUrls: ['./wf-datepicker.component.scss']
 })
-export class WfNumericTextboxComponent implements OnInit {
+export class WfDatepickerComponent implements OnInit {
 
   @Input() webFormSectionData: any;
   @Input() componentData: any;

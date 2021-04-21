@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { WfValueChange } from '../models/wf-value-change';
 
 @Component({
   selector: 'app-wf-section',
@@ -13,7 +14,7 @@ export class WfSectionComponent implements OnInit {
   displayString: string = "";
   contextObj:any = {};
 
-  numericComponentValue: number = 0;
+  latestComponentValue: string = "";
 
   constructor() { }
 
@@ -41,6 +42,9 @@ export class WfSectionComponent implements OnInit {
           case 3: //numeric
             componentString = '<app-wf-numeric-textbox [webFormSectionData]="context.webFormSectionData" [componentData]="context.webFormSectionData.components[' + i + ']" (isComponentValid)="context.isComponentValidHandler($event)"></app-wf-numeric-textbox>';
             break;
+          case 4: //datepicker
+            componentString = '<app-wf-datepicker [webFormSectionData]="context.webFormSectionData" [componentData]="context.webFormSectionData.components[' + i + ']" (isComponentValid)="context.isComponentValidHandler($event)"></app-wf-datepicker>';
+            break;
           default:
             componentString = '{{component' + i + '}}';
             break;
@@ -51,8 +55,8 @@ export class WfSectionComponent implements OnInit {
     }
   }
 
-  isComponentValidHandler(value: number) {
-    this.numericComponentValue = value;
+  isComponentValidHandler(wfValueChange: WfValueChange) {
+    this.latestComponentValue = wfValueChange.componentValue;
   };
 
 }
